@@ -16,3 +16,4 @@ local.properties
 fastlane/report.xml
 fastlane/fastlanedemoGoogleDrive.json
 .idea
+fastlane/.env
