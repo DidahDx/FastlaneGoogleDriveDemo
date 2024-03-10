@@ -38,9 +38,20 @@ platform :android do
   lane :beta do
     gradle(task: "clean assembleRelease")
     upload_drive()
-
-    #used to get the url of the uploaded file
+     #used to get the url of the uploaded file
     file_upload_path=lane_context[SharedValues::GDRIVE_UPLOADED_FILE_URLS][0]
+
+    release_notes = File.read("../release-notes.md")
+    release_notes= release_notes +"\nLink to apk:\n"+file_upload_path
+
+    firebase_app_distribution(
+                app: ENV['FIREBASE_APP_ID_ANDROID'],
+                groups: "qa-tester",
+                release_notes: release_notes,
+                firebase_cli_token: ENV['FIREBASE_CI_TOKEN']
+     )
+
+
     sh "echo Link to apk :" + file_upload_path
     # sh "your_script.sh"
     # You can also use other beta testing services here

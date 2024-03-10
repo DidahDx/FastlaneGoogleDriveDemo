@@ -17,3 +17,4 @@ fastlane/report.xml
 fastlane/fastlanedemoGoogleDrive.json
 .idea
 fastlane/.env
+app/google-services.json
