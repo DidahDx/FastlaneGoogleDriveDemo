@@ -26,6 +26,11 @@ Runs all the tests
 fastlane android beta
 ```
 Submit a new Beta Build to Crashlytics Beta
+### android sampleTest
+```
+fastlane android sampleTest
+```
+Demo using different .env files print sample
 ### android deploy
 ```
 fastlane android deploy
